@@ -71,11 +71,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
               <!-- 아이디, 비밀번호, 로그인 버튼 -->
               <fieldset id="id-pw-area">
                 <section>
-                  <input type="text" name="inputEmail" placeholder="이메일"
+                  <input type="text" name="memberEmail" placeholder="이메일"
                     autocomplete="on" value="${cookie.saveId.value}"/>
                                         <%-- 쿠키 중 saveId만 저장 --%>
 
-                  <input type="password" name="inputPw" placeholder="비밀번호" />
+                  <input type="password" name="memberPw" placeholder="비밀번호" />
                 </section>
 
                 <section>
