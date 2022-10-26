@@ -110,6 +110,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         
           <%-- 로그인 O인 경우 --%>
           <c:otherwise>
+      
 
             <article class="login-area">
             
