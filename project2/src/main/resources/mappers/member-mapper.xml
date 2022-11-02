@@ -14,7 +14,7 @@
 			
 			- 속성
 			type : 연결할 VO 객체의 타입(패키지명 + 클래스명 or 별칭)
-																											mabatis-config.xml 에서 지정
+					mabatis-config.xml 에서 지정
 			id : resultMap을 식별할 이름
 			
 	
@@ -80,7 +80,7 @@
 		TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE
 		FROM "MEMBER"
 		WHERE MEMBER_DEL_FL = 'N'
-		AND MEMBER_EMAIL = #{memberEmail};
+		AND MEMBER_EMAIL = #{memberEmail}
 	</select>
 	
 	<!-- insert / update / delete는

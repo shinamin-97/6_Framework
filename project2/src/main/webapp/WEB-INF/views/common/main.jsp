@@ -66,7 +66,15 @@ uri="http://java.sun.com/jsp/jstl/core"%>
           <%-- 로그인 X인 경우 --%>
           <c:when test="${empty sessionScope.loginMember}">
 
-             <form action="/member/login" name="login-frm" method="POST">
+             <form action="/member/login" name="login-frm" method="POST"
+                  onsubmit="return loginValidate();">
+
+              <%-- 
+                  form태그의 submint 이벤트를 취소시키는 방법1
+
+                  -> 인라인 이벤트 모델의 결과로 false를 리턴하면
+                      제출 이벤트 취소된다.
+               --%>                  
 
               <!-- 아이디, 비밀번호, 로그인 버튼 -->
               <fieldset id="id-pw-area">
@@ -95,7 +103,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
               <!-- 아이디 저장 -->
               <!-- label 태그에 input 태그 작성하면 자동으로 연결됨 -->
               <label>
-                <input type="checkbox" name="saveId" ${temp}/> 아이디 저장
+                <input type="checkbox" id="saveId" name="saveId" ${temp}/> 아이디 저장
               </label>
 
               <!-- 회원가입, 아이디 비밀번호 찾기 버튼 -->
@@ -142,6 +150,8 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 
     <%-- footer.jsp 포함 --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="/resources/js/main.js"></script>
    
    
   </body>
