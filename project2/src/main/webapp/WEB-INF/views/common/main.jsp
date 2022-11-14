@@ -56,6 +56,46 @@ uri="http://java.sun.com/jsp/jstl/core"%>
       <jsp:include page="/WEB-INF/views/common/header.jsp"/>
       <section class="content">
         <section class="content-1">
+          <div>
+            <h3>이메일로 회원 정보 조회(AJAX)</h3>
+
+            이메일 : <input type="text" id="inputEmail">
+            <button id="selectEmail">조회</button>
+          </div>
+
+          <div id="content-1-2">
+            <h3>10초마다 모든 회원 정보 조회(AJAX)</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>회원번호</th>
+                  <th>이메일</th>
+                  <th>탈퇴여부</th>
+                </tr>
+              </thead>
+              
+              <tbody id="tbody">
+                <%-- <tr class="secession">
+                  <th>1</th>
+                  <td>user01@kh.or.kr</td>
+                  <td>N</td>
+                </tr>
+                  <tr>
+                  <td>2</td>
+                  <td>user02@kh.or.kr</td>
+                  <td>Y</td>
+                </tr> --%>
+              </tbody>
+              
+              <tfoot>
+                <tr>
+                  <th>회원 수</th>
+                  <th colspan="2" id="memberCount">2명</th>
+                </tr>
+              </tfoot>
+
+            </table>
+          </div>
         </section>
         
         <section class="content-2">
@@ -123,8 +163,14 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             <article class="login-area">
             
               <%-- 회원 프로필 이미지 --%>
-              <a href="#">
-                <img id="member-profile" src="/resources/images/user.png">
+              <a href="/member/myPage/profile">
+                <c:if test="${empty loginMember.profileImage}">
+                  <img id="member-profile" src="/resources/images/user.png">
+                 </c:if>
+
+                 <c:if test="${!empty loginMember.profileImage}">
+                  <img id="member-profile" src="${loginMember.profileImage}">
+                 </c:if>
               </a>
 
               <%-- 회원 정보 + 로그아웃 버튼 --%>
@@ -151,6 +197,8 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     <%-- footer.jsp 포함 --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+    <!--jQuery CDN 방식으로 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="/resources/js/main.js"></script>
    
    

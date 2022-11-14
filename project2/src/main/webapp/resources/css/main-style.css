@@ -127,6 +127,7 @@ nav {
   top: 0;
   height: 50px;
   border-bottom: 2px solid black;
+  z-index: 500;
 }
 
 nav > ul {
@@ -426,6 +427,18 @@ label[for='header-menu-toggle']:hover {
   color: gray;
 }
 
+#content-1-2{
+  width: 400px;
+  margin: 50px auto;
+  border: 1px solid black;
+}
 
+.secession{
+  background-color: #ccc;
+}
+
+.secession > td:first-of-type{
+  text-decoration: line-through; /* 가운데 선 */
+}
 
 
