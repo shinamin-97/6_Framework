@@ -138,9 +138,11 @@ public class MemberController {
 	//	  유연하게 처리함
 	
 	@PostMapping("/member/login")
-	public String login(/* @ModelAttribute */ Member inputMember, Model model, RedirectAttributes ra,
-						@RequestParam(value="saveId", required=false) String saveId, HttpServletResponse resp, @RequestHeader(value="referer") String referer) {
-															// 체크박수 값 얻어오기		//쿠키 전달용
+	public String login(/* @ModelAttribute */ Member inputMember, 
+											  Model model, RedirectAttributes ra,
+											  @RequestParam(value="saveId", required=false) String saveId, // 체크박스 값 얻어오기
+											  HttpServletResponse resp, @RequestHeader(value="referer") String referer) { //쿠키 전달용
+																	
 		
 		// Model : 데이터 전달용 객체
 		// - 데이터를 Map형식으로 저장하여 전달하는 객체
