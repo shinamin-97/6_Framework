@@ -78,26 +78,21 @@
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
-                    
-                    
-                    
 
                     </tbody>
                 </table>
             </div>
 
-
             <div class="btn-area">
 
 				<!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
-                <button id="insertBtn">글쓰기</button>                     
+                <c:if test="${not empty loginMember}">
+                    <button id="insertBtn">글쓰기</button>                     
+                </c:if>
 
             </div>
 
-
             <div class="pagination-area">
-
-
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
@@ -123,8 +118,6 @@
                         </c:choose>
 
                     </c:forEach>
-					
-
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
                     <li><a href="/board/${boardCode}?cp=${pagination.nextPage}">&gt;</a></li>
@@ -161,8 +154,12 @@
         <img id="modal-image" src="/resources/images/board/20221116105843_00001.gif">
     </div>
 
-
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script>
+        const boardCode = "${boardCode}";
+    </script>
+
     <script src="/resources/js/board/boardList.js"></script>
 
 </body>
