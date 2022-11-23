@@ -68,6 +68,16 @@ public interface BoardService {
 	 */
 	int boardWirte(Board board, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
 
+	/** 게시글 수정
+	 * @param board
+	 * @param imageList
+	 * @param webPath
+	 * @param folderPath
+	 * @param deleteList
+	 * @return result
+	 */
+	int boardUpdate(Board board, List<MultipartFile> imageList, String webPath, String folderPath, String deleteList) throws Exception;
+
 	
 
 }
