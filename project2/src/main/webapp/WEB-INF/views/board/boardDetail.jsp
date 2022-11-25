@@ -167,12 +167,12 @@
         // -> 왜? 값이 없어서 공백이 되더라도 ""(빈 문자열)로 인식하여
         //   에러 발생을 막음.
         const memberNo = "${loginMember.memberNo}";
-
         const boardNo = "${boardNo}";
     </script>
     
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="/resources/js/board/board.js"></script>
+    <script src="/resources/js/board/comment.js"></script>
 
 </body>
 </html>

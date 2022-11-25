@@ -50,22 +50,30 @@ public class BoardController {
 	// 요청주소 ?K=V&K=V&K=V... (queryString, 쿼리스트링)
 	// -> 요청주소에 값을 담아서 전달할 때 사용하는 문자열
 	
-	@GetMapping("/board/{boardCode}")
-	public String selectBoardList(@PathVariable("boardCode") int boardCode,
-			Model model,
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-			) {
-		
-		// Model : 값 전달용 객체
-		// model.addAttribute("K", V) : request scope에 세팅
-		//								-> forward 시 유지됨
-		
-		Map<String, Object> map = service.selectBoardList(boardCode, cp);
-		
-		model.addAttribute("map", map); // request scope 세팅
-		
-		return "board/boardList"; // forward
-	}
+	   @GetMapping("/board/{boardCode}")
+	   public String selectBoardList(@PathVariable("boardCode") int boardCode, Model model,
+	         @RequestParam(value="cp", required=false, defaultValue = "1") int cp,
+	         @RequestParam Map<String, Object> pm
+	         ) {
+	      
+	      // Model: 값 전달용 객체
+	      // model.addAttribute("k", v): request scope에 세팅
+	      //                     -> forward 시 유지됨
+	      
+	      if(pm.get("key") == null) { //검색이 아닌 경우
+	         Map<String, Object> map = service.selectBoardList(boardCode, cp);
+	         model.addAttribute("map", map); // request scope 세팅
+	         
+	      } else { // 검색인 경우
+	         
+	         pm.put("boardCode", boardCode);
+	         //pm = boardCode, key, query, cp
+	         Map<String, Object> map  =service.selectBoardList(pm, cp);
+	         model.addAttribute("map", map);
+	      }
+	      
+	      return "board/boardList"; // forward
+	   }
 	
 	// 게시글 상세조회
 	@GetMapping("/board/{boardCode}/{boardNo}")
