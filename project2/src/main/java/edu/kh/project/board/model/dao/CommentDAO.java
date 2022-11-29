@@ -14,7 +14,7 @@ public class CommentDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	/**
+	/** 댓글 목록 조회
 	 * @param boardNo
 	 * @return
 	 */

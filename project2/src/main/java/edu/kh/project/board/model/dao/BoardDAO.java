@@ -187,6 +187,10 @@ public class BoardDAO {
 	      return sqlSession.selectList("boardMapper.selectBoardList_search", pm, rowBounds);
 	   }
 
+	   public List<String> selectImageList() {
+		      return sqlSession.selectList("boardMapper.selectImageList2");
+		   }
+
 }
 
 
